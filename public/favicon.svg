@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16243c"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="48" y1="8" x2="26" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6ee7b7"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#tile)"/>
+
+  <!-- Dial track -->
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#2e4062" stroke-width="8"/>
+
+  <!-- Elapsed arc: 25 minutes = 150 degrees clockwise from 12 o'clock -->
+  <path d="M32 11 A21 21 0 0 1 42.5 50.186" fill="none" stroke="url(#arc)"
+        stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Hand pointing at the 25-minute mark -->
+  <path d="M32 32 L38.75 43.69" fill="none" stroke="#f8fafc"
+        stroke-width="5" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="3.4" fill="#f8fafc"/>
+</svg>

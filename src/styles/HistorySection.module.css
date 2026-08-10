@@ -1,0 +1,128 @@
+.section {
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-xl);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 1.5rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--slate-200);
+}
+
+.headingIcon {
+  color: var(--slate-400);
+  flex-shrink: 0;
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  font-size: 0.75rem;
+  color: var(--slate-400);
+  background: none;
+  border: none;
+  transition: color 150ms ease;
+  white-space: nowrap;
+}
+
+.clearButton:hover {
+  color: var(--rose-300);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 12rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.empty {
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--slate-500);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--line-faint);
+  border-radius: 0.5rem;
+  background: var(--surface-raised);
+  transition: background-color 150ms ease;
+}
+
+.item:hover {
+  background: var(--surface-raised-hover);
+}
+
+.itemMain {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.time {
+  font-family: var(--font-mono);
+  color: var(--slate-400);
+}
+
+.tag {
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+}
+
+.tagWork {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--emerald-400);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.tagBreak {
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--sky-400);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--slate-500);
+}
