@@ -1,75 +1,97 @@
-# React + TypeScript + Vite
+# ⏳ 自律型ポモドーロ時計 (Self-Paced Pomodoro Clock)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **タイマーによる強制から解放され、自分の意志でポモドーロをデザインする。**
 
-Currently, two official plugins are available:
+従来のポモドーロタイマーのような「機械的なカウントダウンによる強制終了」ではなく、「現在時刻の確認」と「作業・休憩の経過時間の記録」に特化した、新しいコンセプトのポモドーロ時計アプリです。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 💡 コンセプト
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+ポモドーロ・テクニック（25分の作業と5分の休憩）は強力な時間管理術ですが、以下のような課題を感じたことはありませんか？
 
-## Expanding the ESLint configuration
+- **「あと少しでキリが良いのに、タイマーが鳴って集中が途切れてしまう」**
+- **「タイマーに急かされているようなプレッシャー（強制力）を感じて疲れる」**
+- **「休憩に入ったものの、25分きっちりで作業に戻るのが億劫になる」**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+本アプリは、こうした**「タイマーによる強制力」からユーザーを解放します。**
+カウントダウンではなく**カウントアップ（経過時間表示）**を採用し、作業や休憩の開始時刻を**記録・可視化**することで、自分の体調やキリの良さに合わせて柔軟に、かつ自律的にポモドーロ法を実践できます。
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ✨ 主な機能
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 🕰️ **現在時刻の常時表示**
+  - 壁時計のように今何時かを意識しながら、自然な時間感覚で作業できます。
+- ⏳ **カウントアップ式経過時間表示**
+  - セッション開始（作業/休憩）からの経過時間をリアルタイムで表示。何分経過したかが一目でわかります。
+- 🎨 **セッションに応じたテーマカラー変化**
+  - 「作業中（情熱的なカラー）」「休憩中（穏やかなグリーン系カラー）」「未開始（ニュートラル）」と、状態に合わせて背景や時計のトーンがスムーズに変化します。
+- 📝 **アクティビティ履歴の自動保存**
+  - 作業・休憩を開始した時刻が自動的にログとして記録されます。
+  - データはブラウザの `LocalStorage` に保存されるため、ページをリロードしても消えません。必要に応じてワンクリックで履歴をクリアできます。
+- 💎 **洗練されたモダンUI/UX**
+  - 目に優しく、集中力を妨げないプレミアムなダークテーマ調のデザイン。心地よい微細なアニメーションやホバーエフェクトを搭載しています。
 
+---
+
+## 🚀 使い方
+
+1. **作業を始める**
+   - 「作業開始」ボタンをクリックします。画面が作業モードのカラーに変わり、経過時間の計測と履歴への記録が始まります。
+2. **自分のタイミングで休憩に移る、または止める**
+   - キリの良いタイミングが来たら「停止」をクリックするか、そのまま「休憩開始」をクリックして休憩セッションへシームレスに移行できます。
+3. **履歴で振り返る**
+   - 画面下部の履歴ログで、自分が何時に作業や休憩を始めたかを振り返り、その日のリズムを確認します。
+
+---
+
+## 🛠️ 技術スタック
+
+- **フロントエンドフレームワーク**: React (v18)
+- **開発言語**: TypeScript
+- **ビルドツール**: Vite
+- **スタイリング**: CSS Modules (Vanilla CSS)
+- **アイコン**: Lucide React
+- **状態管理/永続化**: React State + LocalStorage API
+
+---
+
+## 💻 開発環境のセットアップ
+
+プロジェクトをローカルで動かすには、以下の手順に従ってください。
+
+### 1. 依存関係のインストール
+プロジェクトのルートディレクトリでパッケージをインストールします（Yarn を推奨）。
+
+```bash
+yarn install
+# または
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. 開発サーバーの起動
+ローカル開発サーバーを起動します。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+yarn dev
+# または
+npm run dev
 ```
+
+起動後、コンソールに表示されるURL（通常は `http://localhost:5173`）にブラウザでアクセスします。
+
+### 3. プロダクションビルド
+本番環境用に最適化されたファイルをビルドします。
+
+```bash
+yarn build
+# または
+npm run build
+```
+
+---
+
+## 📄 ライセンス
+
+このプロジェクトは MIT ライセンスの下で公開されています。
